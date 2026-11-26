@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skyline Ridge Run — a flight game</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="stage">
+  <canvas id="game" width="1280" height="800"></canvas>
+
+  <section id="menu" class="overlay">
+    <div class="panel">
+      <p class="kicker">A FLIGHT GAME</p>
+      <h1>Skyline Ridge Run</h1>
+      <p class="tagline">Thread the rings, mind the fuel, and bring her home.</p>
+      <div id="mission-list" class="missions"></div>
+      <div class="controls">
+        <span><b>↑ ↓</b> pitch</span>
+        <span><b>← →</b> bank &amp; turn</span>
+        <span><b>Shift</b> throttle</span>
+        <span><b>Q</b> throttle back</span>
+        <span><b>B</b> brake</span>
+        <span><b>Mouse</b> drag to steer</span>
+        <span><b>P</b> pause</span>
+        <span><b>R</b> restart</span>
+        <span><b>M</b> mute</span>
+      </div>
+      <p class="hint">Fly through every golden ring, then land on the runway to finish. Fuel is life — a ring buys you some back.</p>
+    </div>
+  </section>
+
+  <section id="pause" class="overlay hidden">
+    <div class="panel small">
+      <h2>PAUSED</h2>
+      <p>Press P to keep flying.</p>
+    </div>
+  </section>
+
+  <section id="end" class="overlay hidden">
+    <div class="panel small">
+      <h2 id="end-title">CRASHED</h2>
+      <p id="end-body"></p>
+      <p id="end-best" class="best"></p>
+      <p class="hint">Press R to fly again, or reload to pick another mission.</p>
+    </div>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

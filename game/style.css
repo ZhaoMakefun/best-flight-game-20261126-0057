@@ -1,0 +1,169 @@
+/* Skyline Ridge Run — page chrome: a dark stage, the canvas centred, and
+   the menu / pause / end overlays floating over it. The game itself draws
+   everything inside the canvas; this file only dresses the page. */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #0a0f16;
+  color: #eef2f8;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.stage {
+  position: relative;
+  width: min(1280px, 100vw);
+  margin: 0 auto;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0a0f16;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(6, 10, 18, 0.42);
+}
+
+.overlay.hidden { display: none; }
+
+.panel {
+  width: min(620px, 92%);
+  padding: 28px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(8, 14, 24, 0.82);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  backdrop-filter: blur(3px);
+}
+
+.panel.small { width: min(440px, 92%); }
+
+.kicker {
+  margin: 0 0 6px;
+  letter-spacing: 0.32em;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffd166;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 30px;
+  letter-spacing: 0.04em;
+}
+
+.tagline {
+  margin: 0 0 20px;
+  color: #c6d3e2;
+  font-size: 16px;
+}
+
+.missions {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.mission {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  grid-template-areas:
+    "key name meta"
+    "key brief meta";
+  column-gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mission:hover, .mission:focus-visible {
+  border-color: #ffd166;
+  background: rgba(255, 209, 102, 0.12);
+  outline: none;
+}
+
+.mission-key {
+  grid-area: key;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffd166;
+  color: #1a1405;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.mission-name {
+  grid-area: name;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.mission-brief {
+  grid-area: brief;
+  color: #c6d3e2;
+  font-size: 13px;
+}
+
+.mission-meta {
+  grid-area: meta;
+  color: #ffd166;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  justify-content: center;
+  margin-bottom: 14px;
+  color: #aebccb;
+  font-size: 13px;
+}
+
+.controls b { color: #eef2f8; }
+
+.hint {
+  margin: 0;
+  color: #aebccb;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.best {
+  color: #ffd166;
+  font-weight: 700;
+  font-size: 14px;
+}
